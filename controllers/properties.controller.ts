@@ -4,8 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { unlinkSync, existsSync } from 'fs';
 import { join } from 'path';
 
-import {hostname} from 'os'
-
 const getProperties = async (req: any, res: Response) => {
     const uid = req.uid;
 
