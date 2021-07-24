@@ -4,9 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon dist/",
-    "build": "tsc",
+    "start:dev": "nodemon dist/",
+    "start": "node dist/",
     "copyMySpecialFiles": "copyfiles --error --up 1 uploads/properties/*.* dist/uploads"
   },
   "keywords": [],

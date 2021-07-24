@@ -1,5 +1,4 @@
 node_modules/
-dist/
 uploads/properties/**.jpg
 uploads/properties/**.jpeg
 uploads/properties/**.png
