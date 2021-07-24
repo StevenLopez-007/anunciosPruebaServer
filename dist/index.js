@@ -11,6 +11,7 @@ const cors_1 = __importDefault(require("cors"));
 const auth_router_1 = require("./routes/auth.router");
 // Rutas de Properties
 const properties_router_1 = require("./routes/properties.router");
+const http_1 = __importDefault(require("http"));
 const app = express_1.default();
 app.use(cors_1.default());
 // Lectura y parseo de body
@@ -19,8 +20,10 @@ app.use(express_1.default.urlencoded({ limit: '25mb', extended: true }));
 // Rutas
 app.use('/api', auth_router_1.router);
 app.use('/api', properties_router_1.routerProperties);
+const server = http_1.default.createServer(app);
 config_1.dbConnection().then(() => {
-    app.listen(globalEnvironmets_1.default.SERVER_PORT, () => {
+    server.listen(globalEnvironmets_1.default.SERVER_PORT, () => {
+        console.log(server.address());
         console.log(`Servidor corriendo en el puerto ${globalEnvironmets_1.default.SERVER_PORT}`);
     });
 }).catch((error) => console.log(error));

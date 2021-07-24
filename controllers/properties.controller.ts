@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { unlinkSync, existsSync } from 'fs';
 import { join } from 'path';
 
+import {hostname} from 'os'
+
 const getProperties = async (req: any, res: Response) => {
     const uid = req.uid;
 
@@ -228,9 +230,7 @@ const retornarImagen = (req: any, res: Response) => {
 
     const foto = req.params.name;
 
-    const pathImg = join(__dirname, `../uploads/properties/${foto}`);
-    console.log(join(__dirname, `../uploads/properties/${foto}`))
-
+    const pathImg =  join(__dirname, `../uploads/properties/${foto}`);
     if (existsSync(pathImg)) {
         res.sendFile(pathImg);
     } else {

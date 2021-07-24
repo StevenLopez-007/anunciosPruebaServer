@@ -207,7 +207,6 @@ exports.editAdd = editAdd;
 const retornarImagen = (req, res) => {
     const foto = req.params.name;
     const pathImg = path_1.join(__dirname, `../uploads/properties/${foto}`);
-    console.log(path_1.join(__dirname, `../uploads/properties/${foto}`));
     if (fs_1.existsSync(pathImg)) {
         res.sendFile(pathImg);
     }
