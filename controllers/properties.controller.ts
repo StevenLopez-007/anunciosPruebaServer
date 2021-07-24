@@ -48,8 +48,8 @@ const register = async (req: any, res: Response) => {
         const nombreArchivo = `${uuidv4()}.${extension}`;
 
         // Path donde guardar la imagen
-        const path = `./uploads/properties/${nombreArchivo}`;
-
+        // const path = `./uploads/properties/${nombreArchivo}`;
+        const path = join(__dirname, `../uploads/properties/${nombreArchivo}`);
         photos.mv(path, async function (err: any) {
             if (err) {
                 return res.json({
@@ -166,7 +166,8 @@ const addPhoto = async (req: any, res: Response) => {
     const nombreArchivo = `${uuidv4()}.${extension}`;
 
     // Path donde guardar la imagen
-    const path = `./uploads/properties/${nombreArchivo}`;
+    // const path = `./uploads/properties/${nombreArchivo}`;
+    const path = join(__dirname, `../uploads/properties/${nombreArchivo}`);
 
     const anuncio = await propertieModel.findById(idAdd);
     if (!anuncio) { return res.status(400).json({ ok: false, msg: 'No existe el anuncio' }) }
@@ -228,6 +229,7 @@ const retornarImagen = (req: any, res: Response) => {
     const foto = req.params.name;
 
     const pathImg = join(__dirname, `../uploads/properties/${foto}`);
+    console.log(join(__dirname, `../uploads/properties/${foto}`))
 
     if (existsSync(pathImg)) {
         res.sendFile(pathImg);
@@ -256,7 +258,8 @@ function uploadsPhotos(photos: any[]) {
             const nombreArchivo = `${uuidv4()}.${extension}`;
 
             // Path donde guardar la imagen
-            const path = `./uploads/properties/${nombreArchivo}`;
+            // const path = `./uploads/properties/${nombreArchivo}`;
+            const path = join(__dirname, `../uploads/properties/${nombreArchivo}`);
             photosProperties.push(nombreArchivo);
             await photo.mv(path, function (err: any) {
                 if (err) {

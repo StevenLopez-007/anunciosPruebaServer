@@ -49,7 +49,8 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         // Generar nombre del archivo
         const nombreArchivo = `${uuid_1.v4()}.${extension}`;
         // Path donde guardar la imagen
-        const path = `./uploads/properties/${nombreArchivo}`;
+        // const path = `./uploads/properties/${nombreArchivo}`;
+        const path = path_1.join(__dirname, `../uploads/properties/${nombreArchivo}`);
         photos.mv(path, function (err) {
             return __awaiter(this, void 0, void 0, function* () {
                 if (err) {
@@ -151,7 +152,8 @@ const addPhoto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // Generar nombre del archivo
     const nombreArchivo = `${uuid_1.v4()}.${extension}`;
     // Path donde guardar la imagen
-    const path = `./uploads/properties/${nombreArchivo}`;
+    // const path = `./uploads/properties/${nombreArchivo}`;
+    const path = path_1.join(__dirname, `../uploads/properties/${nombreArchivo}`);
     const anuncio = yield properties_model_1.propertieModel.findById(idAdd);
     if (!anuncio) {
         return res.status(400).json({ ok: false, msg: 'No existe el anuncio' });
@@ -205,6 +207,7 @@ exports.editAdd = editAdd;
 const retornarImagen = (req, res) => {
     const foto = req.params.name;
     const pathImg = path_1.join(__dirname, `../uploads/properties/${foto}`);
+    console.log(path_1.join(__dirname, `../uploads/properties/${foto}`));
     if (fs_1.existsSync(pathImg)) {
         res.sendFile(pathImg);
     }
@@ -228,7 +231,8 @@ function uploadsPhotos(photos) {
             // Generar nombre del archivo
             const nombreArchivo = `${uuid_1.v4()}.${extension}`;
             // Path donde guardar la imagen
-            const path = `./uploads/properties/${nombreArchivo}`;
+            // const path = `./uploads/properties/${nombreArchivo}`;
+            const path = path_1.join(__dirname, `../uploads/properties/${nombreArchivo}`);
             photosProperties.push(nombreArchivo);
             yield photo.mv(path, function (err) {
                 if (err) {
