@@ -14,3 +14,5 @@ Levantar servidor
 ````
 npm run start:dev
 ````
+
+El manejo de imaganes no funciona de manera local.
