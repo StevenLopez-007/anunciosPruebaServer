@@ -197,7 +197,7 @@ const editAdd = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         anuncio.amenidades = JSON.parse(amenidades);
         anuncio.ubicacion = JSON.parse(ubicacion);
         yield anuncio.save();
-        res.json({ ok: true, msg: 'Anuncio actualizado' });
+        res.json({ ok: true, propertie: anuncio });
     }
     catch (error) {
         res.status(500).json({ ok: false, msg: 'Ocurrió algun error' });

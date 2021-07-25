@@ -217,7 +217,7 @@ const editAdd = async (req: any, res: Response) => {
 
         await anuncio.save();
 
-        res.json({ ok: true, msg: 'Anuncio actualizado' });
+        res.json({ ok: true, propertie:anuncio });
 
     } catch (error) {
         res.status(500).json({ ok: false, msg: 'Ocurrió algun error' })
