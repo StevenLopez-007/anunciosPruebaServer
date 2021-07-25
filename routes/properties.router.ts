@@ -14,7 +14,7 @@ routerProperties.post('/properties',[
     check('nombre','El nombre es requerido').not().isEmpty()
     .custom((value,{req})=>{
         if(!req.files){
-            throw new Error('Selecciona al menos una imagen');
+            throw new Error('Selecciona al menos una foto');
         }
         return true;
     }),
