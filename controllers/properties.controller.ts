@@ -62,7 +62,7 @@ const register = async (req: any, res: Response) => {
                 photos: [nombreArchivo],
                 nombre,
                 moneda,
-                precio,
+                precio:parseInt(precio),
                 descripcion,
                 amenidades: JSON.parse(amenidades),
                 ubicacion,
@@ -81,7 +81,7 @@ const register = async (req: any, res: Response) => {
             photos: photosProperties,
             nombre,
             moneda,
-            precio,
+            precio:parseInt(precio),
             descripcion,
             amenidades: JSON.parse(amenidades),
             ubicacion,
@@ -210,7 +210,7 @@ const editAdd = async (req: any, res: Response) => {
 
         anuncio.nombre = nombre;
         anuncio.moneda = moneda;
-        anuncio.precio = precio;
+        anuncio.precio = parseInt(precio);
         anuncio.descripcion = descripcion;
         anuncio.amenidades = JSON.parse(amenidades);
         anuncio.ubicacion = JSON.parse(ubicacion);
