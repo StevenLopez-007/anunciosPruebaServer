@@ -172,7 +172,7 @@ const addPhoto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             try {
                 anuncio.photos.push(nombreArchivo);
                 yield anuncio.save();
-                res.json({ ok: true, msg: 'Foto agregada' });
+                res.json({ ok: true, msg: 'Foto agregada', img: nombreArchivo });
             }
             catch (error) {
                 res.status(500).json({ ok: false, msg: 'Ocurrio un error' });
