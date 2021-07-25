@@ -212,8 +212,8 @@ const editAdd = async (req: any, res: Response) => {
         anuncio.moneda = moneda;
         anuncio.precio = precio*1;
         anuncio.descripcion = descripcion;
-        anuncio.amenidades = JSON.parse(amenidades);
-        anuncio.ubicacion = JSON.parse(ubicacion);
+        anuncio.amenidades = amenidades;
+        anuncio.ubicacion = ubicacion;
 
         await anuncio.save();
 
@@ -273,7 +273,9 @@ function uploadsPhotos(photos: any[]) {
 
 function deletePhotoFromFolder(name: string) {
     const path = join(__dirname, `../uploads/properties/${name}`);
-    unlinkSync(path);
+    if(existsSync(path)){
+        unlinkSync(path);
+    }
 }
 
 export { register, getProperties, deleteAdd, deletePhoto, addPhoto, editAdd, retornarImagen }

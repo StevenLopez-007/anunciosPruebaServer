@@ -194,8 +194,8 @@ const editAdd = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         anuncio.moneda = moneda;
         anuncio.precio = precio * 1;
         anuncio.descripcion = descripcion;
-        anuncio.amenidades = JSON.parse(amenidades);
-        anuncio.ubicacion = JSON.parse(ubicacion);
+        anuncio.amenidades = amenidades;
+        anuncio.ubicacion = ubicacion;
         yield anuncio.save();
         res.json({ ok: true, propertie: anuncio });
     }
@@ -246,5 +246,7 @@ function uploadsPhotos(photos) {
 }
 function deletePhotoFromFolder(name) {
     const path = path_1.join(__dirname, `../uploads/properties/${name}`);
-    fs_1.unlinkSync(path);
+    if (fs_1.existsSync(path)) {
+        fs_1.unlinkSync(path);
+    }
 }
