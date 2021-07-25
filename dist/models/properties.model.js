@@ -6,7 +6,7 @@ const propertieSchema = new mongoose_1.Schema({
     photos: { type: [String], required: true },
     nombre: { type: String, required: true },
     moneda: { type: String, required: true },
-    precio: { type: String, required: true },
+    precio: { type: Number, required: true },
     descripcion: { type: String, required: true },
     amenidades: { type: mongoose_1.Schema.Types.Mixed, required: true },
     ubicacion: { type: mongoose_1.Schema.Types.Mixed, required: true },

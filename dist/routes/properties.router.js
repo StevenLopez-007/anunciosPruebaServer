@@ -18,7 +18,7 @@ routerProperties.post('/properties', [
     express_validator_1.check('nombre', 'El nombre es requerido').not().isEmpty()
         .custom((value, { req }) => {
         if (!req.files) {
-            throw new Error('Selecciona al menos una imagen');
+            throw new Error('Selecciona al menos una foto');
         }
         return true;
     }),
@@ -28,7 +28,6 @@ routerProperties.post('/properties', [
     express_validator_1.check('descripcion', 'La descripción es requerida').not().isEmpty(),
     express_validator_1.check('amenidades.*', 'Las amenidades son requeridas').not().isEmpty(),
     express_validator_1.check('ubicacion', 'La ubicacion es requerida').not().isEmpty(),
-    express_validator_1.check('user', 'Ingrese un usuario válido').isMongoId(),
     validar_campos_1.validarCampos
 ], properties_controller_1.register);
 routerProperties.get('/properties/getphoto/:name', properties_controller_1.retornarImagen);

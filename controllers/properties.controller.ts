@@ -62,7 +62,7 @@ const register = async (req: any, res: Response) => {
                 photos: [nombreArchivo],
                 nombre,
                 moneda,
-                precio:parseInt(precio),
+                precio:precio*1,
                 descripcion,
                 amenidades: JSON.parse(amenidades),
                 ubicacion,
@@ -81,7 +81,7 @@ const register = async (req: any, res: Response) => {
             photos: photosProperties,
             nombre,
             moneda,
-            precio:parseInt(precio),
+            precio:precio*1,
             descripcion,
             amenidades: JSON.parse(amenidades),
             ubicacion,
@@ -210,7 +210,7 @@ const editAdd = async (req: any, res: Response) => {
 
         anuncio.nombre = nombre;
         anuncio.moneda = moneda;
-        anuncio.precio = parseInt(precio);
+        anuncio.precio = precio*1;
         anuncio.descripcion = descripcion;
         anuncio.amenidades = JSON.parse(amenidades);
         anuncio.ubicacion = JSON.parse(ubicacion);
@@ -229,10 +229,12 @@ const retornarImagen = (req: any, res: Response) => {
     const foto = req.params.name;
 
     const pathImg =  join(__dirname, `../uploads/properties/${foto}`);
+    // const pathImg = `./uploads/properties/${foto}`;
     if (existsSync(pathImg)) {
         res.sendFile(pathImg);
     } else {
         const pathImg = join(__dirname, `../uploads/properties/noImg.jpg`);
+        // const pathImg = `./uploads/properties/${foto}`;
         res.sendFile(pathImg)
     }
 }

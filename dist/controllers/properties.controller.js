@@ -63,7 +63,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                     photos: [nombreArchivo],
                     nombre,
                     moneda,
-                    precio,
+                    precio: precio * 1,
                     descripcion,
                     amenidades: JSON.parse(amenidades),
                     ubicacion,
@@ -83,7 +83,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             photos: photosProperties,
             nombre,
             moneda,
-            precio,
+            precio: precio * 1,
             descripcion,
             amenidades: JSON.parse(amenidades),
             ubicacion,
@@ -192,7 +192,7 @@ const editAdd = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         ;
         anuncio.nombre = nombre;
         anuncio.moneda = moneda;
-        anuncio.precio = precio;
+        anuncio.precio = precio * 1;
         anuncio.descripcion = descripcion;
         anuncio.amenidades = JSON.parse(amenidades);
         anuncio.ubicacion = JSON.parse(ubicacion);
@@ -207,11 +207,13 @@ exports.editAdd = editAdd;
 const retornarImagen = (req, res) => {
     const foto = req.params.name;
     const pathImg = path_1.join(__dirname, `../uploads/properties/${foto}`);
+    // const pathImg = `./uploads/properties/${foto}`;
     if (fs_1.existsSync(pathImg)) {
         res.sendFile(pathImg);
     }
     else {
         const pathImg = path_1.join(__dirname, `../uploads/properties/noImg.jpg`);
+        // const pathImg = `./uploads/properties/${foto}`;
         res.sendFile(pathImg);
     }
 };
