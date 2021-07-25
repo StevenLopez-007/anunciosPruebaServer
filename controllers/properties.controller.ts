@@ -65,7 +65,7 @@ const register = async (req: any, res: Response) => {
                 precio,
                 descripcion,
                 amenidades: JSON.parse(amenidades),
-                ubicacion: JSON.parse(ubicacion),
+                ubicacion,
                 user: uid
             });
 
@@ -84,7 +84,7 @@ const register = async (req: any, res: Response) => {
             precio,
             descripcion,
             amenidades: JSON.parse(amenidades),
-            ubicacion: JSON.parse(ubicacion),
+            ubicacion,
             user: uid
         });
 

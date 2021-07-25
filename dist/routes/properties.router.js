@@ -27,7 +27,7 @@ routerProperties.post('/properties', [
     express_validator_1.check('precio', 'El precio es requerido').not().isEmpty(),
     express_validator_1.check('descripcion', 'La descripción es requerida').not().isEmpty(),
     express_validator_1.check('amenidades.*', 'Las amenidades son requeridas').not().isEmpty(),
-    express_validator_1.check('ubicacion.*', 'La ubicacion es requerida').not().isEmpty(),
+    express_validator_1.check('ubicacion', 'La ubicacion es requerida').not().isEmpty(),
     express_validator_1.check('user', 'Ingrese un usuario válido').isMongoId(),
     validar_campos_1.validarCampos
 ], properties_controller_1.register);

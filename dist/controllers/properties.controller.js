@@ -66,7 +66,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                     precio,
                     descripcion,
                     amenidades: JSON.parse(amenidades),
-                    ubicacion: JSON.parse(ubicacion),
+                    ubicacion,
                     user: uid
                 });
                 yield propertie.save();
@@ -86,7 +86,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             precio,
             descripcion,
             amenidades: JSON.parse(amenidades),
-            ubicacion: JSON.parse(ubicacion),
+            ubicacion,
             user: uid
         });
         yield propertie.save();

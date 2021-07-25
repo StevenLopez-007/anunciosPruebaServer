@@ -23,7 +23,7 @@ routerProperties.post('/properties',[
     check('precio','El precio es requerido').not().isEmpty(),
     check('descripcion','La descripción es requerida').not().isEmpty(),
     check('amenidades.*','Las amenidades son requeridas').not().isEmpty(),
-    check('ubicacion.*','La ubicacion es requerida').not().isEmpty(),
+    check('ubicacion','La ubicacion es requerida').not().isEmpty(),
     check('user','Ingrese un usuario válido').isMongoId(),
     validarCampos
 ],register);
