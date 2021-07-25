@@ -272,7 +272,8 @@ function uploadsPhotos(photos: any[]) {
 }
 
 function deletePhotoFromFolder(name: string) {
-    unlinkSync(`./uploads/properties/${name}`);
+    const path = join(__dirname, `../uploads/properties/${name}`);
+    unlinkSync(path);
 }
 
 export { register, getProperties, deleteAdd, deletePhoto, addPhoto, editAdd, retornarImagen }

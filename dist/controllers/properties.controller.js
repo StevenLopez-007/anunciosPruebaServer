@@ -245,5 +245,6 @@ function uploadsPhotos(photos) {
     });
 }
 function deletePhotoFromFolder(name) {
-    fs_1.unlinkSync(`./uploads/properties/${name}`);
+    const path = path_1.join(__dirname, `../uploads/properties/${name}`);
+    fs_1.unlinkSync(path);
 }
